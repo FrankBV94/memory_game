@@ -8,7 +8,7 @@ const RegularButton: React.FC<RegularButtonProps> = ({
   children,
 }) => {
   return (
-    <button className="btn btn--text" onClick={handleClick}>
+    <button className="btn btn-primary" onClick={handleClick}>
       {children}
     </button>
   );

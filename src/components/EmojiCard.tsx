@@ -35,7 +35,7 @@ const EmojiButton: React.FC<EmojiButtonProps> = ({
 
   return (
     <button
-      className={`btn btn--emoji ${btnStyle}`}
+      className={`btn btn--emoji btn-soft btn-xl  ${btnStyle}`}
       onClick={selectedCardEntry ? () => {} : handleClick}
       disabled={matchedCardEntry ? true : false}
       aria-label={`Position ${index + 1}: ${btnAria}`}

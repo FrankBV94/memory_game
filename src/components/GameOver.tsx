@@ -15,9 +15,18 @@ const GameOver: React.FC<GameOverProps> = ({ handleClick }) => {
   }, []);
 
   return (
-    <div className="wrapper wrapper--accent" tabIndex={0} ref={divRef}>
-      <p className="p--large">You've matched all the memory cards!</p>
-      <RegularButton handleClick={handleClick}>Play again</RegularButton>
+    <div
+      className="card w-96 bg-base-100 card-lg shadow-sm"
+      tabIndex={0}
+      ref={divRef}
+    >
+      <div className="card-body">
+        <h2 className="card-title">You've matched all the memory cards!</h2>
+
+        <div className="justify-end card-actions">
+          <RegularButton handleClick={handleClick}>Play again</RegularButton>
+        </div>
+      </div>
     </div>
   );
 };

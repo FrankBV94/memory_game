@@ -41,7 +41,7 @@ const MemoryCard: React.FC<MemoryCardProps> = ({
     );
   });
 
-  return <ul className="card-container">{cardEl}</ul>;
+  return <ul className="card-container mt-32">{cardEl}</ul>;
 };
 
 export default MemoryCard;

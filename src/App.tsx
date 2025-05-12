@@ -3,6 +3,7 @@ import AssistiveTechInfo from "./components/AssistiveTechInfo";
 import ErrorCard from "./components/ErrorCard";
 import Form from "./components/Form";
 import GameOver from "./components/GameOver";
+import Header from "./components/Header";
 import MemoryCard from "./components/MemoryCard";
 import type { EmojiData, SelectedCard } from "./type";
 
@@ -134,31 +135,35 @@ export default function App() {
   }
 
   return (
-    <main>
-      <h1>Memory</h1>
-      {!isGameOn && !isError && (
-        <Form
-          handleSubmit={startGame}
-          handleChange={handleFormChange}
-          isFirstRender={isFirstRender}
-        />
-      )}
-      {isGameOn && !areAllCardsMatched && (
-        <AssistiveTechInfo
-          emojisData={emojisData}
-          matchedCards={matchedCards}
-        />
-      )}
-      {areAllCardsMatched && <GameOver handleClick={resetGame} />}
-      {isGameOn && (
-        <MemoryCard
-          handleClick={turnCard}
-          data={emojisData}
-          selectedCards={selectedCards}
-          matchedCards={matchedCards}
-        />
-      )}
-      {isError && <ErrorCard handleClick={resetError} />}
-    </main>
+    <div className="bg-base-200 min-h-screen w-full">
+      <div className="flex flex-col w-full min-h-screen justify-center">
+        <Header />
+        <main className="flex flex-col h-full items-center justify-center gap-4 p-8">
+          {!isGameOn && !isError && (
+            <Form
+              handleSubmit={startGame}
+              handleChange={handleFormChange}
+              isFirstRender={isFirstRender}
+            />
+          )}
+          {isGameOn && !areAllCardsMatched && (
+            <AssistiveTechInfo
+              emojisData={emojisData}
+              matchedCards={matchedCards}
+            />
+          )}
+          {areAllCardsMatched && <GameOver handleClick={resetGame} />}
+          {isGameOn && (
+            <MemoryCard
+              handleClick={turnCard}
+              data={emojisData}
+              selectedCards={selectedCards}
+              matchedCards={matchedCards}
+            />
+          )}
+          {isError && <ErrorCard handleClick={resetError} />}
+        </main>
+      </div>
+    </div>
   );
 }
